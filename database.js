@@ -1,5 +1,7 @@
-const fragment = document.createDocumentFragment()
 const homeStorage = JSON.parse(localStorage.getItem("HomeInventory"))
+
+const root = document.querySelector("#myStuff")
+
 
 console.log(homeStorage)
 
@@ -11,35 +13,17 @@ console.log(instrumentList)
 const electronicList = homeStorage.electronics
 console.log(electronicList)
 
-const furnitureShow = document.createElement("section")
-furnitureShow.className = "furniture"
-furnitureShow.textContent = furnitureList.name
-fragment.appendChild(furnitureShow)
-
-
-let showItems = (homeData) => {
-    let storageDisplay = document.querySelector("#myStuff");
-    homeData.forEach((homeStorage) => {
-        let storageSection = buildHomeStorage(homeStorage);
-        storageDisplay.appendChild(storageSection)
-    
+let homeBuilder = (list) => {
+    let section = document.createElement("section")
+furnitureList[0].forEach(element => {
+    furnitureList[element] 
+    console.log(element)
     });
 }
-debugger
-let buildHomeStorage = (homeStorage) => {
-    let section = `<section>${homeStorage}
-    <p>${homeStorage.name}</p>
-    <p>${homeStorage.location}</p>
-    <p>${homeStorage.description}</p>
-    </section>`
-    return section
+
+
+let sectionData = (data) => {
+    let paragraph = document.createElement("p")
+    paragraph.textContent = homeStorage.furniture.name
+
 }
-const furnitureItem = document.createElement("p")
-furnitureItem.textContent = furnitureList[0].name
-furnitureShow.appendChild(furnitureItem)
-
-showItems(furnitureList)
-
-console.log(showItems)
-
-document.querySelector("#myStuff").appendChild(furnitureShow)
